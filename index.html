@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>打飞机</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(to bottom, #1a1a1a, #4a4a4a);
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            touch-action: none;
+        }
+
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        canvas {
+            border: 2px solid #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.1);
+            width: 100%;
+            height: auto;
+        }
+
+        .controls-overlay {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .move-buttons, .action-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .control-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            touch-action: manipulation;
+        }
+
+        .instructions {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            max-width: 400px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .controls {
+            margin-top: 5px;
+            font-size: 0.8em;
+            color: #ccc;
+        }
+
+        .key {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin: 0 3px;
+        }
+
+        @media (min-width: 768px) {
+            .controls-overlay {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>打飞机</h1>
+    <div class="game-container">
+        <canvas id="gameCanvas" width="400" height="600"></canvas>
+    </div>
+    <div class="controls-overlay">
+        <div class="move-buttons">
+            <button class="control-btn" id="leftBtn">←</button>
+            <button class="control-btn" id="rightBtn">→</button>
+        </div>
+        <div class="action-buttons">
+            <button class="control-btn" id="shootBtn">发射</button>
+        </div>
+    </div>
+    <div class="instructions">
+        <h3>游戏说明</h3>
+        <div class="controls">
+            <span class="pc-controls">
+                移动: <span class="key">←</span> <span class="key">→</span> 或 <span class="key">A</span> <span class="key">D</span><br>
+                发射: <span class="key">空格</span><br>
+                音量: <span class="key">↑</span> <span class="key">↓</span>
+            </span>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
